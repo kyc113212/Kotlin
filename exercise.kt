@@ -1,4 +1,7 @@
+import kotlin.math.*
+
 data class info(var h:Int, var w:Int)
+data class Person(val name : String, val age : Int)
 
 fun main(args: Array<String>) {
     /*print("값을 입력하세요 : ")
@@ -23,6 +26,21 @@ fun main(args: Array<String>) {
         list2.add(info(arr5[i],arr[i]))
     }
 
-    var sl = list2.sortBy { it.h }
+    var sl = list2.sortedWith(compareBy({-it.h},{-it.w}))
+
+    var line: Long = 0
+    for (i in sl.indices){
+        line += sl[i].w
+
+    }
+
+    var personList = listOf(
+        Person("Han",25),
+        Person("Kim",19),
+        Person("Lee",27),
+        Person("Choi",25)
+    )
+    var personList1 = personList.sortedBy {it.age }
+
     println()
 }
